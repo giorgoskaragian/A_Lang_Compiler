@@ -1,0 +1,29 @@
+t1 = [{"()": (function (t) { print(t, "\n"); })}];
+t1();
+
+function constmaker(c) {
+	return [
+		{"c": c},
+		{"()": (function (t) { return t.c; })}
+	];
+}
+
+c10 = constmaker(10);
+print(c10(), "\n");
+
+chello = constmaker("hello");
+print(chello(), "\n");
+
+f = [
+	{"i": 0},
+	{"()": (function (t) {
+		++t.i;
+		if(t.i % 2 == 0) {
+			print("f()\n");
+		}
+
+		return t;
+	})}
+];
+
+f()()()();

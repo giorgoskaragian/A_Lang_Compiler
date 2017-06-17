@@ -1,0 +1,9 @@
+x = 10; // global[0]
+{
+	x = 20; // global[0]
+	local x = 30; // global[1]
+	{
+		x = y = z = 40; // x = global[0] or global[1] (??? probably depends on how we traverse the scope's symbol linked list), y = global[2], z = global[3]
+		local x = 50; // global[4]
+	}
+}

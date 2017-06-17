@@ -1,0 +1,8 @@
+function fact(n){
+   if(n==1) { return 1; }
+   else { return(n*fact(n-1)); }
+ }
+
+x = input();
+print("Factorial of x ", x);
+print(" is " , fact(x));

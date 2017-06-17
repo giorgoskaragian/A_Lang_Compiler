@@ -1,0 +1,19 @@
+function delegate(obj, method) {
+	return [
+		{"x": obj},
+		{"f": method},
+		{"()": (function (t) { return t.f(t.x); })}
+	];
+}
+
+function Attacker(sprite, location) {
+	return [
+		{"sprite": sprite},
+		{"ai": (function (this) {
+		})}
+	];
+}
+
+a = Attacker(1, 5);
+ai_f = delegate(a, a.ai);
+ai_f();

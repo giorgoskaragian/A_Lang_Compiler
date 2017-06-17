@@ -1,0 +1,13 @@
+x = input();
+
+if(x > 1){
+	print("x is greater than 1 : " , x);
+}
+else {
+	if(x == 0){
+		print("x == 0");
+	}
+	else{
+		print("x is not 0");
+	}
+}

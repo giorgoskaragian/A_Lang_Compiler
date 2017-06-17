@@ -1,0 +1,7 @@
+function add(x,y) { return x + y; }
+
+
+x1 = input();
+x2 = input();
+
+print("adding nums ", add(x1,x2)); 

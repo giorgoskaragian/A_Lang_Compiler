@@ -1,0 +1,87 @@
+function testArguments()
+{
+	local n = totalarguments();
+	print("- testArguments() called with ", n, " arguments\n");
+	
+	for(local i = 0;i < n;++i) {
+		local arg = argument(i);
+		print("-- arg #", i, " = ", arg, " (", typeof(arg), ")\n");
+	}
+}
+
+local bool = true;
+local num = 5.0;
+local string = "string";
+local null = nil;
+local userFunc = (function () {});
+local libFunc = input;
+local table = [{"foo": 1.0}, {"bar": "tmp"}];
+
+print("Testing print()/typeof()\n");
+print("- Bool: ", bool, " (", typeof(bool), ")\n");
+print("- Number: ", num, " (", typeof(num), ")\n");
+print("- String: ", string, " (", typeof(string), ")\n");
+print("- nil: ", null, " (", typeof(null), ")\n");
+print("- User Function: ", userFunc, " (", typeof(userFunc), ")\n");
+print("- Library Function: ", libFunc, " (", typeof(libFunc), ")\n");
+print("- Table: ", table, " (", typeof(table), ")\n");
+print("\n");
+
+print("Testing objectmemberkeys()\n");
+local tableWithIntegerKeys = ["str", 5.0, num++, ++num, true];
+local tableWithMixedKeys = [{"foo": 1.0}, {"bar": "tmp"}];
+tableWithMixedKeys[128] = 4.0;
+print("- Integer keys: ", objectmemberkeys(tableWithIntegerKeys), "\n");
+print("- String keys: ", objectmemberkeys(table), "\n");
+print("- Mixed keys: ", objectmemberkeys(tableWithMixedKeys), "\n");
+print("\n");
+
+print("Testing objecttotalmembers()\n");
+print("- Table: ", tableWithIntegerKeys, ", len = ", objecttotalmembers(tableWithIntegerKeys), "\n");
+print("- Table: ", table, ", len = ", objecttotalmembers(table), "\n");
+print("- Table: ", tableWithMixedKeys, ", len = ", objecttotalmembers(tableWithMixedKeys), "\n");
+print("\n");
+
+print("Testing objectcopy()\n");
+local tableCopy = objectcopy(table);
+print("- Original: ", table, " Copy: ", tableCopy, "\n");
+print("-- Original == Original: ", table == table, "\n");
+print("-- Copy == Copy: ", tableCopy == tableCopy, "\n");
+print("-- Original == Copy: ", table == tableCopy, "\n");
+print("\n");
+
+print("Testing argument()/totalarguments()\n");
+testArguments(1, 2, true, 4);
+testArguments("str", [0, 1, 2, 3]);
+testArguments(true, nil);
+print("Calling totalarguments() in global scope\n");
+print("- Total args: ", totalarguments(), "\n");
+print("\n");
+
+print("Testing strtonum()\n");
+print("- strtonum(\"1\") = ", strtonum("1"), "\n");
+print("- strtonum(\"3.14159\") = ", strtonum("3.14159"), "\n");
+print("- strtonum(5.0) = ", strtonum(5.0), "\n");
+print("\n");
+
+print("Testing sqrt()/sin()/cos()\n");
+print("- sqrt(4.0) = ", sqrt(4.0), "\n");
+print("- sqrt(-1.0) = ", sqrt(-1.0), "\n");
+//print("- sqrt(true) = ", sqrt(true), "\n"); // error
+print("- cos(180) = ", cos(180), "\n");
+print("- sin(45) = ", sin(45), "\n");
+print("\n");
+
+print("Testing input() (type nothing to stop)\n");
+while(true) {
+	print(">> ");
+	local i = input();
+
+	local typeof_i = typeof(i);
+	print(i, " ", typeof_i, "\n");
+
+	if(typeof_i == "undefined") {
+		break;
+	}
+}
+print("\n");

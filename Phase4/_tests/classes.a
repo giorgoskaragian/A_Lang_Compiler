@@ -1,0 +1,24 @@
+function Point(x, y) {
+	return [
+		{"x": x},
+		{"y": y},
+		{"move": (function (this, dx, dy) {
+			this.x = this.x + dx;
+			this.y = this.y + dy;
+		})}
+	];
+}
+
+function Square(p1, p2) {
+	return [
+		{"p1": p1},
+		{"p2": p2},
+		{"move": (function (this, dx, dy) {
+			this.p1..move(dx, dy);
+			this.p2..move(dx, dy);
+		})}
+	];
+}
+
+sq = Square(Point(10, 20), Point(30, 40));
+sq..move(-4, -8);

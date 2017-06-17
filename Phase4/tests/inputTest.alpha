@@ -1,0 +1,4 @@
+x = input();
+print("Testing input with assign ... ", x);
+print("Testing input without assign ... ", input());
+    
