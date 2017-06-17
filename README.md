@@ -12,6 +12,7 @@ Phase5 is a VM.
 4) use the executable
 
 !!!Notice!!!
+
 You need the file you get out of the compiler(Phase4)
 as is(to have the .abc extension), to be able to run on VM(Phase5).
 
