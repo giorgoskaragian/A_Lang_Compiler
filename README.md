@@ -13,6 +13,6 @@ Phase5 is a VM.
 
 !!!Notice!!!
 You need the file you get out of the compiler(Phase4)
-as is(to have the .abc extension), to be able to run on VM.
+as is(to have the .abc extension), to be able to run on VM(Phase5).
 
 Will add the language at some point in the future.
