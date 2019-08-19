@@ -1,6 +1,6 @@
 # A_Lang_Compiler
 
-This is a compiler for a subject i had in University.
+This is a compiler for a sublanguage of C.
 
 Phase5 is a VM.
 
